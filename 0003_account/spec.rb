@@ -12,8 +12,7 @@ class Account
 
   def transfer(account, money)
     account.amount += money
-    self.amount -= money
-    self
+    withdraw(money)
   end
 end
 
