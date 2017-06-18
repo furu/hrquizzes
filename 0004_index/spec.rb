@@ -1,8 +1,7 @@
 def foo(a)
   a
     .map(&:to_i)
-    .each_with_index
-    .map { |v, k| [k, v] }
+    .map.with_index { |v, k| [k, v] }
     .sort_by { |v| v[1] }
 end
 
