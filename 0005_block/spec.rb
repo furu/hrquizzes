@@ -1,19 +1,12 @@
-
 def foo(a, &block)
-
-  # TODO
+  a.map.with_index { |e, i| i.odd? ? yield(e) : e }
 end
 
-
-DATA = [ 100, 230, 456, 231, 678, 789, 309 ]
-
+DATA = [100, 230, 456, 231, 678, 789, 309]
 
 context 'quiz 0005' do
-
   describe 'foo' do
-
     it "applies a block to every odd element in an array" do
-
       expect(
         foo(DATA) { |e| 2 * e }
       ).to eq([
@@ -22,4 +15,3 @@ context 'quiz 0005' do
     end
   end
 end
-
