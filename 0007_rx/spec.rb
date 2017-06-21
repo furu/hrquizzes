@@ -7,10 +7,10 @@ def foo(text)
     .uniq
     .sort
     .map { |e| [e, e.size] }
-    .sort_by { |e| e[1] }
+    .sort_by(&:last)
     .reverse
     .take(5)
-    .map { |e| e[0] }
+    .map(&:first)
 end
 
 context 'quiz 0007' do
