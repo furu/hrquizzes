@@ -1,16 +1,21 @@
+require 'tapp'
 
 def foo(text)
-
-  # TODO
+  text
+    .split
+    .map { |e| e.sub(/(\.|,|:|\?|'s)$/, '') }
+    .uniq
+    .sort
+    .map { |e| [e, e.size] }
+    .sort_by { |e| e[1] }
+    .reverse
+    .take(5)
+    .map { |e| e[0] }
 end
 
-
 context 'quiz 0007' do
-
   describe 'foo' do
-
     it "returns the five longest words" do
-
       expect(
         foo(%{
           Sing, O goddess, the anger of Achilles son of Peleus, that brought
@@ -36,4 +41,3 @@ context 'quiz 0007' do
     end
   end
 end
-
