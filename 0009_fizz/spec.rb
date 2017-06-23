@@ -1,13 +1,22 @@
+def fizz_buzz?
+  -> n { fizz?[n] && buzz?[n] }
+end
+
+def fizz?
+  -> n { n % 3 == 0 }
+end
+
+def buzz?
+  -> n { n % 5 == 0 }
+end
+
 def foo(a)
   a.map do |e|
-    if e % 15 == 0
-      'FizzBuzz'
-    elsif e % 3 == 0
-      'Fizz'
-    elsif e % 5 == 0
-      'Buzz'
-    else
-      e.to_s
+    case e
+    when fizz_buzz? then 'FizzBuzz'
+    when fizz? then 'Fizz'
+    when buzz? then 'Buzz'
+    else e.to_s
     end
   end
 end
