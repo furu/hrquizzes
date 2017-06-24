@@ -1,16 +1,10 @@
-
 def make_withdrawer(initial_amount)
-
-  # TODO
+  -> (money) { initial_amount -= money }
 end
 
-
 context 'quiz 0006' do
-
   describe 'make_withdrawer' do
-
     it "returns a money withdrawal proc" do
-
       w0 = make_withdrawer(10_000)
 
       expect(w0.class).to eq(Proc)
@@ -21,4 +15,3 @@ context 'quiz 0006' do
     end
   end
 end
-
